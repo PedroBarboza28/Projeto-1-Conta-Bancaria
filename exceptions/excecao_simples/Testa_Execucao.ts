@@ -1,5 +1,5 @@
 import readline = require("readline-sync");
-import { ExcecaoSimples } from "../excecao_simples/excecao_simples";
+import { ExcecaoSimples } from "../excecao_simples/Excecao_simples";
 
 let resultado: number | null;
 let loop: boolean = true;

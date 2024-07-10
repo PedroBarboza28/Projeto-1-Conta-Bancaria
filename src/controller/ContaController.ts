@@ -3,7 +3,7 @@ import { colors } from "../util/color";
 import { ContaRepository } from "../repository/ContaRepository";
 
 export class ContaController implements ContaRepository {
-    
+
     private listaContas: Array<Conta> = new Array<Conta>();
     private numero: number = 0;
 
@@ -11,9 +11,21 @@ export class ContaController implements ContaRepository {
         return ++this.numero;
     }
 
+
+    procurarPorTitular(titular: string): void {
+
+        let buscaPorTitular = this.listaContas.filter(c =>
+            c.titular.includes(titular)
+        );
+
+        buscaPorTitular.forEach(conta => conta.visualizar());
+
+    }
+
+
     procurarPorNumero(numero: number): void {
         let buscarConta = this.buscarNoArray(numero);
-        
+
         if (buscarConta != null) {
             buscarConta.visualizar();
         } else {
@@ -37,7 +49,7 @@ export class ContaController implements ContaRepository {
 
         if (buscaConta != null) {
             this.listaContas[this.listaContas.indexOf(buscaConta)] = conta;
-            console.log(colors.fg.green, "\nConta número: " + conta.numero + " foi atualizada com sucesso!", colors.reset);           
+            console.log(colors.fg.green, "\nConta número: " + conta.numero + " foi atualizada com sucesso!", colors.reset);
         } else {
             console.log(colors.fg.red, "\nA conta número " + conta.numero + " não foi encontrada!", colors.reset);
         }
