@@ -138,7 +138,7 @@ export function main(this: any) {
                                     saldo, limite));
                             break;
 
-                        case 2:
+                        case 2: 
                             console.log("Digite o Dia do aniversário da Conta Poupança: ");
                             aniversario = read.questionInt("");
                             contas.atualizar(new ContaPoupanca(numero, agencia, tipo, titular, saldo,
