@@ -13,14 +13,14 @@ export function main(this: any) {
     const tiposContas = ['Conta Corrente', 'Conta Poupanca'];
     let conta: Conta | null = null; // Corrigida a declaração da variável 'conta'
 
-    const contacorrente: ContaCorrente = new ContaCorrente(2, 123, 1, "Mariana", 15000, 1000);
+    const contacorrente: ContaCorrente = new ContaCorrente(contas.gerarNumero(), 123, 1, "Mariana", 15000, 1000);
     contacorrente.visualizar();
     contacorrente.sacar(2000);
     contacorrente.visualizar();
     contacorrente.depositar(1000);
     contacorrente.visualizar();
 
-    const contapoupanca: ContaPoupanca = new ContaPoupanca(3, 123, 2, "Victor", 1000, 10);
+    const contapoupanca: ContaPoupanca = new ContaPoupanca(contas.gerarNumero(), 123, 2, "Victor", 1000, 10);
     contapoupanca.visualizar();
     contapoupanca.sacar(200);
     contapoupanca.visualizar();
