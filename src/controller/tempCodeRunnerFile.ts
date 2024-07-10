@@ -11,17 +11,17 @@ export class ContaController implements ContaRepository {
         return ++this.numero;
     }
 
+
     procurarPorTitular(titular: string): void {
+
         let buscaPorTitular = this.listaContas.filter(c =>
-            c.titular.toLowerCase().includes(titular.toLowerCase())
+            c.titular.includes(titular)
         );
 
-        if (buscaPorTitular.length > 0) {
-            buscaPorTitular.forEach(conta => conta.visualizar());
-        } else {
-            console.log(colors.fg.red, "\nNenhuma conta encontrada para o titular: " + titular, colors.reset);
-        }
+        buscaPorTitular.forEach(conta => conta.visualizar());
+
     }
+
 
     procurarPorNumero(numero: number): void {
         let buscarConta = this.buscarNoArray(numero);
